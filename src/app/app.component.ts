@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'templateProject';
+  parentTitle = 'templateProject';
+
+  moreReaction(value: string) {
+    console.log("It says : " + value)
+  }
 }
