@@ -6,7 +6,7 @@
 <!--      <app-search [value]="parentSearchValue" (valueChange)="updateParent($event)"></app-search>-->
 <!--      <app-search [value]="parentSearchValue" (valueChange)="parentSearchValue = $event"></app-search>-->
       <app-search [(value)]="parentSearchValue"></app-search>
-      parentSearchValue: {{parentSearchValue}}
+      parentSearchValue: {{parentSearchValue | truncate:2:" ***"}}
     </section>
 
     <!-- Menu -->
@@ -50,12 +50,9 @@
         <h2>Ante interdum</h2>
       </header>
       <div class="mini-posts">
-        <app-mini-post></app-mini-post>
-        <app-mini-post [minipost]="minipost8"></app-mini-post>
-        <article>
-          <a href="#" class="image"><img src="assets/images/pic09.jpg" alt="" /></a>
-          <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-        </article>
+        <ng-container *ngFor="let element of miniposts">
+          <app-mini-post *ngIf="element.src" [minipost]="element"></app-mini-post>
+        </ng-container>
       </div>
       <ul class="actions">
         <li><button class="button" (click)="moreClicked()">More</button></li>

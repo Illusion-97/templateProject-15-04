@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
+import {MiniPost} from "../mini-post/mini-post.component";
 
 @Component({
   selector: 'app-sidebar',
@@ -15,6 +16,27 @@ export class SidebarComponent {
     href: '#',
     text: "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam."
   }
+
+  miniposts: MiniPost[] = [
+    {
+    alt: '',
+    src: 'pic07.jpg',
+    href: '#',
+    text: "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam."
+  },
+    this.minipost8,
+    {
+      alt: '',
+      src: 'pic09.jpg',
+      href: '#',
+      text: "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam."
+    },
+    {
+      alt: '',
+      href: '#',
+      text: "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam."
+    }
+  ]
   // Output permet de faire savoir que ce composant peut TRANSMETTRE une information à ceux qui l'appellent
   @Output() more : EventEmitter<string> = new EventEmitter<string>();
 
