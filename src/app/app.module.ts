@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ArticleEditorComponent } from './components/article-editor/article-editor.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './components/register/register.component';
     SearchComponent,
     TruncatePipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ArticleEditorComponent
   ],
   imports: [
     BrowserModule,
