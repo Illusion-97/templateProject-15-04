@@ -6,9 +6,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MiniPostComponent } from './components/mini-post/mini-post.component';
 import { SearchComponent } from './components/search/search.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { LoginComponent } from './components/login/login.component';
     MiniPostComponent,
     SearchComponent,
     TruncatePipe,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

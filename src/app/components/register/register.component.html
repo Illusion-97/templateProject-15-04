@@ -1,0 +1,12 @@
+<form (submit)="onSubmit()" [formGroup]="form">
+  <label> Username :
+    <input formControlName="username" [class.invalid]="form.get('username')?.invalid" type="text" name="username">
+  </label>
+  <label> Email :
+    <input formControlName="email" [class.invalid]="form.get('email')?.invalid" type="email" name="email">
+  </label>
+  <label> Password :
+    <input formControlName="password" [class.invalid]="form.get('password')?.invalid" type="password" name="password">
+  </label>
+  <input [disabled]="form.invalid" type="submit" class="button" value="Connexion">
+</form>
