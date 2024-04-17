@@ -11,6 +11,20 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ArticleEditorComponent } from './components/article-editor/article-editor.component';
+import { HomeComponent } from './views/home/home.component';
+import { AuthComponent } from './views/auth/auth.component';
+import {RouterModule, RouterOutlet, Routes} from "@angular/router";
+import {CommonModule} from "@angular/common";
+
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'auth', component: AuthComponent, children: [
+      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent}
+    ]},
+  {path: 'article', component: ArticleEditorComponent}
+]
 
 @NgModule({
   declarations: [
@@ -22,12 +36,17 @@ import { ArticleEditorComponent } from './components/article-editor/article-edit
     TruncatePipe,
     LoginComponent,
     RegisterComponent,
-    ArticleEditorComponent
+    ArticleEditorComponent,
+    HomeComponent,
+    AuthComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterOutlet,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
