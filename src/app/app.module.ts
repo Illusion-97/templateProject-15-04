@@ -21,9 +21,11 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'auth', component: AuthComponent, children: [
       {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent}
+      {path: 'register', component: RegisterComponent},
+      {path: '**', redirectTo: 'login', pathMatch: 'prefix'} // path: '**' signifie 'tout le reste' ('**' fait office de 'wildcards')
     ]},
-  {path: 'article', component: ArticleEditorComponent}
+  {path: 'article/:id', component: ArticleEditorComponent},
+  {path: '**', redirectTo: '/', pathMatch: 'full'}
 ]
 
 @NgModule({
@@ -46,7 +48,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterOutlet,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled', useHash: true}) // Veillez à toujours récupérer cette config pour votre RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

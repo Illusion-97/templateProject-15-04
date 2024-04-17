@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Credentials} from "../../models/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,8 @@ export class LoginComponent {
   password: string = ""
   remember: boolean = false;
 
+  constructor(private router: Router) {
+  }
 
   onSubmit(valid: boolean) {
     // TOUJOURS vérifier la validité avant de faire un traitement
@@ -22,6 +25,7 @@ export class LoginComponent {
       }
 
       console.log("Credentials : ", credential)
+      this.router.navigate(['/'])
     }
   }
 

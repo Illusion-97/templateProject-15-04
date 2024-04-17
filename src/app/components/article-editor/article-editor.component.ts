@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AbstractFormComponent} from "../../models/abstract-form-component";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-article-editor',
@@ -17,6 +18,12 @@ export class ArticleEditorComponent extends AbstractFormComponent {
     description: new FormControl("", {validators: [Validators.required]}),
     lien: new FormControl("", {validators: [Validators.required]})
   })
+
+  constructor(route: ActivatedRoute) {
+    super();
+    console.log(route.snapshot.paramMap.get('id'))
+    route.paramMap.subscribe(map => console.log("Observable id :", map.get('id')))
+  }
 
   onSubmit$() {
     console.log("Article", this.form.value)
