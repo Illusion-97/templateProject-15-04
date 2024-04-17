@@ -1,0 +1,13 @@
+<form (submit)="onSubmit(formElement.checkValidity())" #formElement>
+  <label> Email :
+    <input [class.invalid]="!emailInput.checkValidity()" [(ngModel)]="email" type="email" name="email" required #emailInput>
+  </label>
+  <label> Password :
+    <input [class.invalid]="!passwordInput.checkValidity()" [(ngModel)]="password" type="password" name="password" minlength="8" required #passwordInput>
+  </label>
+
+  <input id="remember" type="checkbox" name="remember">
+  <label for="remember"> Remember Me :</label>
+  <br>
+  <input [disabled]="!formElement.checkValidity()" type="submit" class="button" value="Connexion">
+</form>
