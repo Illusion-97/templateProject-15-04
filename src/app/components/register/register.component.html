@@ -12,6 +12,12 @@
     <input formControlName="password" [class.invalid]="isInvalid('password')" type="password" name="password">
     <p class="error" *ngIf="hasError('password','required')">Le mot de passe est requis</p>
     <p class="error" *ngIf="hasError('password','minlength')">Le mot de passe doit faire au minimum 8 caractères</p>
+    <p class="error" *ngIf="hasError('password','mustmatch')">Le mot de passe ne correspondent pas</p>
+  </label>
+  <label> Confirm Password :
+    <input [formControl]="confirmPassword" [class.invalid]="isInvalid(confirmPassword)" type="password" name="confirmPassword">
+    <p class="error" *ngIf="hasError(confirmPassword,'required')">La confirmation du mot de passe est requise</p>
+    <p class="error" *ngIf="hasError(confirmPassword,'mustmatch')">Le mot de passe ne correspondent pas</p>
   </label>
   <input [disabled]="form.invalid" type="submit" class="button" value="Connexion">
 </form>
