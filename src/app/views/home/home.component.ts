@@ -15,6 +15,6 @@ export class HomeComponent {
   }
 
   getAll() {
-    this.articles = this.service.findAll()
+    //this.articles = this.service.findAll()
   }
 }
