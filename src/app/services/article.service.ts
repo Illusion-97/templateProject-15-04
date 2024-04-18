@@ -2,32 +2,22 @@ import { Injectable } from '@angular/core';
 import {Article} from "../models/article";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
+import {AbstractService} from "./abstract.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArticleService {
+export class ArticleService extends AbstractService<Article> {
 
-  constructor(private http: HttpClient) { }
+  END_POINT = `${environment.API_URL}/articles`
 
-  findAll(): Observable<Article[]> {
-
-    return this.http.get<Article[]>("http://localhost:3000/articles")
+  constructor(http: HttpClient) {
+    super(http)
   }
 
-  findById(id: number) {
-    return this.http.get<Article>("http://localhost:3000/articles/" + id)
+  override update(article: Article) : Observable<Article>  {
+    return this.http.put<Article>(`${this.END_POINT}/${article.id}`,article)
   }
 
-  save(article: Article) : Observable<Article> {
-    return this.http.post<Article>("http://localhost:3000/articles",article)
-  }
-
-  update(article: Article) : Observable<Article>  {
-    return this.http.put<Article>("http://localhost:3000/articles/" + article.id,article)
-  }
-
-  delete(id: number) {
-    return this.http.delete<Article>("http://localhost:3000/articles/" + id)
-  }
 }
