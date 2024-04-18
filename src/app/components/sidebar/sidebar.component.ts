@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {MiniPost} from "../mini-post/mini-post.component";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -46,5 +47,8 @@ export class SidebarComponent {
 
   updateParent(value: string) {
     this.parentSearchValue = value
+  }
+
+  constructor(protected service: AuthService) {
   }
 }
