@@ -42,6 +42,9 @@ export class ArticleEditorComponent extends AbstractFormComponent {
     })).subscribe({
       next: article => {
         if(article) this.form.patchValue(article)
+      },
+      error: () => {
+        this.router.navigate(['/article/0'])
       }
     })
   }

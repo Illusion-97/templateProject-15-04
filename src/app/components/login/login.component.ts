@@ -24,10 +24,11 @@ export class LoginComponent {
         email: this.email,
         password: this.password
       }
-
-      console.log("Credentials : ", credential)
-      this.service.login(credential)
-      this.router.navigate(['/'])
+      this.service.login(credential).subscribe({
+        next: () => {
+          this.router.navigate(['/'])
+        }
+      })
     }
   }
 

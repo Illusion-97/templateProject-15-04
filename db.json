@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "admin@dawan.fr",
+      "password": "$2a$10$PPXlTNSz29PjZ3Rk1zKpw.g41OdErqIE9MY0hjp/oempeKuzpehuO",
+      "id": 1,
+      "username": "Yanis"
+    }
+  ],
   "articles": [
     {
       "id": 1,
@@ -7,6 +14,14 @@
       "alt": "Halte !",
       "titre": "Titre ",
       "description": "Try Meh",
+      "lien": "Lien"
+    },
+    {
+      "id": 2,
+      "src": "pic01.jpg",
+      "alt": "Halte !",
+      "titre": "Titre ",
+      "description": "azerfghj",
       "lien": "Lien"
     }
   ]

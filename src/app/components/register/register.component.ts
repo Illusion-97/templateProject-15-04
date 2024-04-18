@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AbstractFormComponent} from "../../models/abstract-form-component";
+import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-register',
@@ -18,7 +20,15 @@ export class RegisterComponent extends AbstractFormComponent {
     password: this.password
   })
 
+  constructor(private router: Router, private service: AuthService) {
+    super();
+  }
+
   onSubmit$() {
-      console.log("User", this.form.value)
+    this.service.register(this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['/auth/login'])
+      }
+    })
   }
 }
