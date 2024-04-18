@@ -5,7 +5,7 @@ export abstract class AbstractService<T> {
 
   abstract END_POINT: string;
 
-  constructor(protected http: HttpClient) { }
+  protected constructor(protected http: HttpClient) { }
 
   findAll(): Observable<T[]> {
     return this.http.get<T[]>(this.END_POINT)
