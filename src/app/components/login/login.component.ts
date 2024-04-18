@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Credentials} from "../../models/user";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   password: string = ""
   remember: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: AuthService) {
   }
 
   onSubmit(valid: boolean) {
@@ -25,6 +26,7 @@ export class LoginComponent {
       }
 
       console.log("Credentials : ", credential)
+      this.service.login(credential)
       this.router.navigate(['/'])
     }
   }

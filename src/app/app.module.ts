@@ -15,6 +15,7 @@ import { HomeComponent } from './views/home/home.component';
 import { AuthComponent } from './views/auth/auth.component';
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import {CommonModule} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterOutlet,
+    HttpClientModule,
     RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled', useHash: true}) // Veillez à toujours récupérer cette config pour votre RouterModule
   ],
   providers: [],
